@@ -14,6 +14,14 @@
  *     ListNode(int x, ListNode *next) : val(x), next(next) {}
  * };
  */
+
+
+/* Approach : 1
+   calaculate the length of the linkedlist
+   Then we can find the middle element by dividing the len by 2
+   reach the middle node and return it.
+*/   
+   
 class Solution {
 public:
     ListNode* middleNode(ListNode* head) {
