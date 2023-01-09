@@ -79,3 +79,9 @@ public:
     Time Complexity: O(n)
     Space Complexity:O(1)
 */    
+
+
+
+//////////////////////////////////////////////////////////   II Question ///////////////////////////////////////////////
+
+https://leetcode.com/problems/binary-tree-preorder-traversal/description/
