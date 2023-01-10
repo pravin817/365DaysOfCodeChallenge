@@ -37,3 +37,31 @@ public:
     Space Complexiy : o(n)
 */    
 
+
+
+///////////////////////////////////  II QUESTION /////////////////////////////////////////////
+
+// https://leetcode.com/problems/counting-bits/description/
+
+
+class Solution {
+public:
+    vector<int> countBits(int n) {
+        vector<int>mem(n+1);
+
+        mem[0] = 0;
+
+        for(int i = 1; i<=n;i++)
+        {
+            mem[i] = mem[i/2] + i%2;
+        }
+
+        return mem;
+    }
+};
+
+/*
+    Analysis:
+    Time Complexity: O(n)
+    Space Complexity : O(n)
+*/    
