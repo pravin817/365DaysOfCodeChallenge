@@ -1,7 +1,7 @@
 /*
   Day 21: 17/01/2023
   Platform : Leetcode
-  Problem Link : https://leetcode.com/problems/difference-between-element-sum-and-digit-sum-of-an-array/description//*
+  Problem Link : https://leetcode.com/problems/difference-between-element-sum-and-digit-sum-of-an-array/description/
 */
 
 class Solution {
@@ -51,5 +51,4 @@ class Solution{
     Analaysis:
     TIme Complexity: O(1)
     Space Complexity: O(1)
-*/ 
-
+*/
