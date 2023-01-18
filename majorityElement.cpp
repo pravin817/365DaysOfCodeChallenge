@@ -8,27 +8,52 @@
 class Solution {
 public:
     int majorityElement(vector<int>& nums) {
-        map<int,int>mp;
+        int len = nums.size();
 
-        for(int i= 0; i<nums.size();i++)
-        {
-            mp[nums[i]]++;
-        }
+        int majorityElementIndex = floor(len/2);
 
-        int maxi = INT_MIN;
-        int ans = 0;
+        // Now sort the array
 
-        for(auto x:mp)
-        {
-            if(x.second > maxi)
-            {
-                maxi = x.second;
-                ans = x.first;
-            }
-        }
-        return ans;
+        sort(nums.begin(),nums.end());
+
+        // now return the middle element as per defination the majorityElement occurs more than floor value of(len/2)
+
+        return nums[majorityElementIndex];
     }
 };
+
+/*
+    Analysis:
+    Time Complexity : O(nlogn)
+    Space Complexity : O(1)
+*/    
+
+
+
+// class Solution {
+// public:
+//     int majorityElement(vector<int>& nums) {
+//         map<int,int>mp;
+
+//         for(int i= 0; i<nums.size();i++)
+//         {
+//             mp[nums[i]]++;
+//         }
+
+//         int maxi = INT_MIN;
+//         int ans = 0;
+
+//         for(auto x:mp)
+//         {
+//             if(x.second > maxi)
+//             {
+//                 maxi = x.second;
+//                 ans = x.first;
+//             }
+//         }
+//         return ans;
+//     }
+// };
 
 /*
     Analysis:
