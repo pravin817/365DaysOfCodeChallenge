@@ -1,0 +1,11 @@
+/*
+  Day 23: 19/01/2023
+  Platform : Leetcode
+  Problem Link : https://leetcode.com/problems/patients-with-a-condition/description/?envType=study-plan&id=sql-i
+*/
+
+# Write your MySQL query statement below
+
+SELECT patient_id,patient_name,conditions 
+FROM Patients
+WHERE conditions like '% DIAB1%' OR conditions like 'DIAB1%';
