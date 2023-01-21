@@ -39,5 +39,5 @@ public:
 /*
     Analysis:
     Time Complexity : O(n)
-    Space Complexity : O(n)
-*/    
+    Space Complexity : O(1)  ------- > because there are only 26 lowercase english Letters
+*/
