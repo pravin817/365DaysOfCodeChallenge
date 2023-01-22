@@ -1,0 +1,53 @@
+//Back-end complete function Template for C
+
+//Function to insert a node at the begin of the linked list.
+struct Node *insertAtBegining(struct Node *head, int x) {
+
+	//storing the new node with data in a pointer.
+	struct Node *temp;
+	temp = (struct Node *) malloc(sizeof(struct Node));
+	temp->data = x;
+	temp->next = NULL;
+
+	//if the linked list is null we just return the new node.
+	if (head == NULL)
+	{
+		return temp;
+	}
+	//else we just add the list head to the link part(next) of new node.
+	//the new node gets inserted at begining and becomes the first node.
+	temp->next = head;
+
+	//returning the linked list.
+	return temp;
+}
+
+
+//Function to insert a node at the end of the linked list.
+struct Node *insertAtEnd(struct Node *head, int x)  {
+
+	//storing the new node with data in a pointer.
+	struct Node *temp;
+	temp = (struct Node *) malloc(sizeof(struct Node));
+	temp->data = x;
+	temp->next = NULL;
+
+	//if the linked list is null we just return the new node.
+	if (head == NULL) {
+		return temp;
+	}
+
+	else {
+		struct Node *ptr = head;
+		//we use a pointer to find the last node of list.
+		while (ptr->next != NULL)
+			ptr = ptr->next;
+
+		//we add the new node to the link part(next) of last node in the list.
+		//the new node gets inserted at end and becomes the last node.
+		ptr->next = temp;
+		temp->next = NULL;
+	}
+	//returning the linked list.
+	return head;
+}
