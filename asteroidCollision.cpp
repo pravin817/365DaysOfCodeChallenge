@@ -81,7 +81,12 @@ class Solution {
    Space Complexity : O(n)
 */   
 
+
+
+
 /* *************************************************************************************************************** */
+
+
 
 // Same Problem on Leetcode
 // Problem Link : https://leetcode.com/problems/asteroid-collision/description/
@@ -139,7 +144,6 @@ class Solution {
             }
         }
         
-        
         // load the data from the stack to vector and reverse it and return 
         
         vector<int>ans;
@@ -163,4 +167,4 @@ class Solution {
    Analysis:
    Time Complexity : O(n)
    Space Complexity : O(n)
-*/   
+*/
