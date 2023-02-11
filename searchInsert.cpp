@@ -7,29 +7,58 @@
 class Solution {
 public:
     int searchInsert(vector<int>& nums, int target) {
-        
-        // As the array is sorted we can apply the binary search
+        // By using the linear search
 
-        int low = 0;
-        int high = nums.size()-1;
-
-        while(low < high)
+        int n = nums.size();
+        for(int i = 0; i<n;i++)
         {
-            // Now find the mid element
-
-            int mid = low +(high - low)/2;
-
-            if(nums[mid] >= target)
-                high = mid;
-            else
-                low = mid + 1;
+            if(nums[i]>=target)
+                return i;
         }
-        return nums[low] >= target ? low : low + 1;
+        return n;
     }
 };
 
 /*
     Analysis:
-    Time Complexity : O(logn)
+    Time Complexity : O(n)
+    Space complexity : O(1)
+*/    
+
+
+class Solution {
+public:
+    int searchInsert(vector<int>& nums, int target) {
+        // As the array is sorted we can apply the binary search
+        // Let's apply the binary search
+
+        int low = 0;
+        int high = nums.size()-1;
+
+        while(low <= high)
+        {
+            // find the mid
+
+            int mid = low + (high - low)/2;
+
+            // if the target element is present at the mid position
+
+            if(nums[mid] == target)
+                return mid;
+
+            if(nums[mid]<target)
+                low = mid + 1;
+            else
+                high = mid - 1;        
+        }
+
+        // If the element is not present then the position of the element will be at low hence return low
+        return low;
+    }
+};
+
+/*
+    Analysis:
+    Time Complexity: O(logn)
     Space Complexity : O(1)
 */    
