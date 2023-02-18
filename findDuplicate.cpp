@@ -63,3 +63,76 @@ public:
         return ans;
     }
 };
+
+
+class Solution {
+public:
+    int findDuplicate(vector<int>& nums) {
+        int duplicate = -1;
+
+        for(int i = 0; i< nums.size();i++)
+        {
+            int cur = abs(nums[i]);
+
+            if(nums[cur] < 0)
+            {
+                duplicate = cur;
+                break;
+            }
+
+            // make the number negative
+
+            nums[cur] *=-1;
+        }
+
+        // now restore the array
+
+        for(auto &num: nums)
+        {
+            num = abs(num);
+        }
+
+        return duplicate;
+    }
+};
+
+/*
+    Analysis:
+    Time Complexity: O(n)
+    Space Complexity : O(1)
+*/    
+
+
+
+class Solution {
+public:
+    int findDuplicate(vector<int>& nums) {
+        
+        // Approach : 3 --- As the mentioned in the question that we can't modify the array and we need to use the only constant extra space , we will use the LinkedList cyclic method.
+
+        // TC : O(n)
+        // SC : O(1)
+
+        int slow = nums[0];
+        int fast = nums[0];
+
+        // step -1 ---> Make the cycle
+
+        do{
+            slow = nums[slow];
+            fast = nums[nums[fast]];
+        }while(slow!=fast);
+
+        // step - 2 : return the slow / fast when both the pointing on the same number
+
+        fast = nums[0];
+
+        while(slow!=fast){
+            slow = nums[slow];
+            fast = nums[fast];
+        }
+
+        return slow;
+       
+    }
+};
