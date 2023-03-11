@@ -70,3 +70,89 @@ public:
         return BST(v,left,right);
     }
 };
+
+
+// Second Approach:
+
+// Find the mid of the linked list
+// |----> Two Options
+//       |---->  By find the total number of the nodes then travel to the nodes/2
+//          --> It takes time (2*n) ====> O(n)
+
+//       |----> By using the slow and fast pointer 
+//          --> It will takes the time (n/2) ===> O(n)
+
+// Then Prepare the BST
+
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+
+    TreeNode * ConvertToBST(ListNode*start,ListNode*end)
+    {
+        // check the base case
+
+        if(start == end)
+            return nullptr;
+
+        // Now find the mid in the linked list -----(n/2)====> O(n)
+
+        ListNode *slow = start;
+        ListNode *fast = start;
+
+        while(fast!=end && fast->next!=end)
+        {
+            // move slow pointer by one place
+
+            slow = slow->next;
+
+            // move fast pointer by two place
+
+            fast = fast->next->next;
+        }    
+
+        // Now the slow pointer is pointing to the mid of the linkedlist
+
+
+        TreeNode *temp = new TreeNode(slow->val);
+        temp->left = ConvertToBST(start,slow);
+        temp->right = ConvertToBST(slow->next, end);
+        return temp;
+    }
+
+    TreeNode* sortedListToBST(ListNode* head) {
+        // check for the base condition
+
+        if(head == nullptr)
+            return nullptr;
+
+        return ConvertToBST(head,nullptr);    
+    }
+};
+
+
+/*
+    Analysis:
+    Time Complexity : O(nlogn)
+    Extra Space : O(1)
+*/
