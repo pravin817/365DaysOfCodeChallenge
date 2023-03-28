@@ -22,3 +22,24 @@ public:
     Time Complexity : O(logn)
     Space Complexity : O(1)
 */    
+
+class Solution {
+public:
+    bool isAnagram(string s, string t) {
+        if(s.size()!=t.size())
+            return false;
+
+        int Hash[26] = {0};
+
+        for(int i = 0;i<s.size();i++){
+            Hash[s[i]-'a']++;
+            Hash[t[i]-'a']--;
+        }    
+
+        for(int i=0; i<26;i++){
+            if(Hash[i])
+                return false;
+        }
+        return true;
+    }
+};
