@@ -30,3 +30,35 @@ public:
     TIme Complexity : O(n)
     Space Complexity : O(1)
 */
+
+
+
+// Problem : 2 
+// https://leetcode.com/problems/number-of-1-bits/description/
+
+class Solution {
+public:
+    int hammingWeight(uint32_t n) {
+        int count = 0;
+
+        while(n!=0){
+
+            // Checking the last bit 
+
+            if(n&1){
+                count++;
+            }
+            // update
+
+            n = n>>1;
+        }
+
+        return count;
+    }
+};
+
+/*
+    Analysis:
+    Time Complexity : O(32)  ---> O(1)
+    Space Complexity : O(1)
+*/
